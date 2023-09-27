@@ -1,0 +1,13 @@
+@import '../styles.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $main-background;
+}
+
+.main {
+  flex: 1;
+  margin: 20px;
+}

@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+$font-family: 'Nunito Sans', sans-serif;
+$dark-green: #002c2b;
+$green: #076461;
+$light-green: #0a837f;
+$yellow: #ffbc11;
+$red: #ff3d00;
+$main-background: #f0f0f0;
+$white: #ffffff;
+$blue: #2b3ee7;
+
+:root {
+  font-family: $font-family;
+}
+
+.red-filter {
+  filter: brightness(0) saturate(100%) invert(28%) sepia(75%) saturate(7237%) hue-rotate(354deg) brightness(99%) contrast(133%);
+}
+
+.blue-filter {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(87%) saturate(6112%) hue-rotate(239deg) brightness(92%) contrast(96%);
+}
+
+h1 {
+  font-weight: 800;
+}
