@@ -1,0 +1,25 @@
+@import '../../../styles.scss';
+
+header {
+  background-color: $green;
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  &__list {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+a {
+  color: inherit;
+
+  &:link { text-decoration: none; };
+  &:visited { text-decoration: none; };
+  &:hover { text-decoration: none; };
+  &:active { text-decoration: none; };
+}
+
