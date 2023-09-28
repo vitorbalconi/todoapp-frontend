@@ -1,0 +1,110 @@
+<section class="todo">
+  <h1>TODO List App - Manage all your activities!</h1>
+
+  <form [formGroup]="todoForm" (ngSubmit)="addTodo()" class="todo__form">
+    <input
+      type="text"
+      aria-label="Write your to do tasks"
+      placeholder="Write your to do tasks"
+      formControlName="description"
+    >
+    <input
+      type="date"
+      aria-label="Due date"
+      placeholder="Due date"
+      formControlName="dueDate"
+    >
+    <select
+      aria-label="Priority"
+      placeholder="Priority"
+      formControlName="priority"
+    >
+      <option *ngFor="let priority of priorities" [value]="priority.key">{{ priority.value }}</option>
+    </select>
+
+
+    <button type="submit" [disabled]="todoForm.invalid" [ngClass]="{'button-disabled': todoForm.invalid}">Save</button>
+  </form>
+
+  <hr style="width: 100%;">
+
+    <form class="todo__filter">
+      <fieldset>
+        <legend style="margin-bottom: 10px;">Filter</legend>
+
+        <div class="todo__filter--form">
+          <select [formControl]="priorityControl" aria-label="Prioriry">
+            <option value="">None</option>
+            <option *ngFor="let priority of priorities" [value]="priority.key">{{ priority.value }}</option>
+          </select>
+
+          <input type="text" aria-label="Seach tasks" placeholder="Search tasks" [formControl]="searchControl">
+
+        </div>
+      </fieldset>
+    </form>
+
+
+    <ul class="todo__list">
+
+      <div class="todo__list--item" style="padding: 10px; font-weight: 600;">
+        <span>Task</span>
+        <span>Due Date</span>
+        <span>Priority</span>
+        <span class="todo__list--actions">Actions</span>
+      </div>
+
+      <ng-container *ngIf="toDoList.length; else noData">
+        <li class="todo__list--item shadow-box" *ngFor="let item of toDoList" [ngClass]="{'task-done': item.done} ">
+          <span for="todoCheckBox" class="todo__list--text" >
+            {{ item.description }}
+          </span>
+          <span>
+            {{ item.dueDate }}
+          </span>
+          <span>
+            {{ item.priority }}
+          </span>
+
+          <div class="todo__list--actions">
+
+            <button *ngIf="!item.done else undo" class="blue-filter" class="todo__list--actions-button" (click)="doUndoTask(item)" aria-label="mark task as done">
+              <app-confirm-icon></app-confirm-icon>
+            </button>
+
+            <ng-template #undo>
+              <button class="todo__list--actions-button" (click)="doUndoTask(item)" aria-label="undo task">
+                <app-undo-icon></app-undo-icon>
+              </button>
+            </ng-template>
+
+            <button class="todo__list--actions-button" (click)="removeTodo(item)" aria-label="remove task">
+              <app-delete-icon></app-delete-icon>
+            </button>
+
+          </div>
+        </li>
+      </ng-container>
+      <ng-template #noData>
+        <div style="align-self: center;">No tasks found.</div>
+      </ng-template>
+
+      <div class="todo__list--pagination">
+        <label for="itenPerPage">Itens per page</label>
+        <select id="itenPerPage" [formControl]="itensPerPage">
+          <option *ngFor="let value of itensPerPageOptions" [value]="value">{{ value }}</option>
+        </select>
+
+        <button class="todo__list--actions-button" (click)="previousPage()" [disabled]="disablePreviousPage" [ngClass]="{'button-disabled': disableNextPage}">
+          <app-back-icon></app-back-icon>
+        </button>
+
+        <span>{{ currentPage }}</span>
+
+        <button class="todo__list--actions-button" (click)="nextPage()" [disabled]="disableNextPage" [ngClass]="{'button-disabled': disablePreviousPage}">
+          <app-foward-icon></app-foward-icon>
+        </button>
+      </div>
+    </ul>
+
+</section>

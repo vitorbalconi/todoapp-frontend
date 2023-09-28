@@ -1,13 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 $font-family: 'Nunito Sans', sans-serif;
-$dark-green: #002c2b;
-$green: #076461;
-$light-green: #0a837f;
 $yellow: #ffbc11;
 $red: #ff3d00;
 $main-background: #f0f0f0;
 $white: #ffffff;
 $blue: #2b3ee7;
+$box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+$color-disabled: #7c7c7c;
 
 :root {
   font-family: $font-family;
@@ -24,3 +23,32 @@ $blue: #2b3ee7;
 h1 {
   font-weight: 800;
 }
+
+.shadow-box {
+  border-radius: 5px;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  padding: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 6px;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-width: 1px;
+  font-family: inherit;
+}
+
+button {
+  color:#f0f0f0;
+  font-weight: 700;
+  background-color: $blue;
+  border-color: $white;
+  box-shadow: $box-shadow;
+}
+
+button.button-disabled {
+  background-color: $color-disabled;
+}
+
+

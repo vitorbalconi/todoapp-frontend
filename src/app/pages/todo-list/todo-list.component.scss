@@ -9,8 +9,21 @@
 
   &__form {
     display:flex;
+    align-items: center;
     gap: 10px;
+
+
   }
+
+  &__filter {
+    align-self: start;
+
+    &--form {
+      display: flex;
+      gap: 10px
+    }
+  }
+
 
   &__list {
     width: 100%;
@@ -26,26 +39,37 @@
     &--actions {
       display: flex;
       gap:5px;
+      justify-self: flex-end;
 
       &-button {
         padding: 0;
         border: none;
-        background-color: unset;
+        background-color: $white;
+        box-shadow: unset;
         display: flex;
         align-items: center;
         justify-self: flex-end;
         cursor: pointer;
+        height: 24px;
       }
     }
 
     &--item {
-      padding: 10px;
-      display: flex;
-      flex:1;
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr 1fr;
       align-items: center;
-      border-radius: 5px;
-      background-color: $white;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    &--pagination{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      button {
+        background-color: unset;
+        border: unset;
+        box-shadow: unset;
+      }
     }
 
 
@@ -53,4 +77,9 @@
 }
 .task-done {
   text-decoration: line-through;
+  color: $color-disabled;
+}
+
+.disable-icon {
+  color: $color-disabled
 }
