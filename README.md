@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
 
+# Backend
+
+This project uses json-server to simulate restAPI with backend.
+  
+1- Install json-server:
+npm install -g json-server
+
+2 - Run json-server in the current project folder
+json-server --watch db.json
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
