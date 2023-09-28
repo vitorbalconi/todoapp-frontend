@@ -26,9 +26,6 @@ export class TodoRepositoryService {
       params = params.append('description', description)
     }
 
-    if(currentPage) {
-    }
-
     return this.http.get<Array<TodoItemI>>(urlConfig.urlTodo, { observe: 'response', params },).pipe(
       map(response => {
 

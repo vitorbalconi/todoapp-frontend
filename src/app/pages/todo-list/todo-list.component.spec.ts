@@ -9,7 +9,7 @@ import { of } from 'rxjs';
 import { toDoServiceMock, toDosMock } from 'src/__mocks__/todo.mock';
 import { TodoItemI } from 'src/app/domain/interfaces/todo.interface';
 
-fdescribe('TodoListComponent', () => {
+describe('TodoListComponent', () => {
   let component: TodoListComponent;
   let fixture: ComponentFixture<TodoListComponent>;
 

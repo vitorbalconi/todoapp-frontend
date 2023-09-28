@@ -11,10 +11,10 @@ export class ToDoMapper {
     if(!response.body) {
       return {
         firstPage: 1,
-          lastPage: 1,
-          toDos: []
-        }
+        lastPage: 1,
+        toDos: []
       }
+    }
 
     const pagesGuide = response.headers.get('Link')?.split(',')!;
 
