@@ -1,7 +1,9 @@
 @import '../../../styles.scss';
 
 header {
-  background-color: $green;
+  background-color: $blue;
+  font-weight: 500;
+  color: $white;
 }
 .nav-bar {
   display: flex;
