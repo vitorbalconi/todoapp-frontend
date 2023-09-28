@@ -4,7 +4,7 @@ import { urlConfig } from 'src/app/config/url.config';
 import { TodoItemI } from '../interfaces/todo.interface';
 import { Observable, map, tap, } from 'rxjs';
 import { ToDoMapper } from '../mappers/todo-mapper';
-import { ToDoReponseI } from '../interfaces/todo-response.interface';
+import { ToDoResponseI } from '../interfaces/todo-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class TodoRepositoryService {
 
   constructor(private http: HttpClient) { }
 
-  public getToDos(currentPage: number, limit: number, priority?: string, description?: string, ): Observable<ToDoReponseI> {
+  public getToDos(currentPage: number, limit: number, priority?: string, description?: string, ): Observable<ToDoResponseI> {
     let params = new HttpParams()
       .append('_page', currentPage)
       .append('_limit', limit)

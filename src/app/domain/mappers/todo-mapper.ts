@@ -1,11 +1,11 @@
 import * as moment from "moment";
 import { PriorityUtil } from "../enums/priority.enum";
 import { TodoItemI } from "../interfaces/todo.interface";
-import { ToDoReponseI } from "../interfaces/todo-response.interface";
+import { ToDoResponseI } from "../interfaces/todo-response.interface";
 import { HttpResponse } from "@angular/common/http";
 
 export class ToDoMapper {
-  static formatedTodo(response: HttpResponse<TodoItemI[]>): ToDoReponseI {
+  static formatedTodo(response: HttpResponse<TodoItemI[]>): ToDoResponseI {
     const locale = navigator.language;
 
     if(!response.body) {

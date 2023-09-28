@@ -40,6 +40,9 @@ export class TodoListComponent {
 
   public firstPage = 1;
 
+  public timeToWaitUserInputs = 500;
+
+
   constructor(private toDoService: TodoRepositoryService) {
     this.searchToDos();
   }
@@ -53,7 +56,7 @@ export class TodoListComponent {
   }
 
   public searchToDos(): void {
-    const timeToWaitUserInputs = 500;
+
 
     combineLatest([
       this.priorityControl.valueChanges.pipe(startWith('')),
@@ -61,7 +64,7 @@ export class TodoListComponent {
       this.itensPerPage.valueChanges.pipe(startWith(this.itensPerPageOptions[0]))
     ])
     .pipe(
-      debounceTime(timeToWaitUserInputs),
+      debounceTime(this.timeToWaitUserInputs),
       takeUntilDestroyed()
     )
     .subscribe(() => {
@@ -70,9 +73,9 @@ export class TodoListComponent {
   }
 
   public getToDos(): void {
-    const priority = this.priorityControl.value ?? '';
-    const search = this.searchControl.value ?? '';
-    const itensPerPage = this.itensPerPage.value!
+    const priority = this.priorityControl.value!;
+    const search = this.searchControl.value!;
+    const itensPerPage = this.itensPerPage.value!;
 
     this.toDoService.getToDos(this.currentPage, itensPerPage, priority, search)
     .pipe(take(1))
