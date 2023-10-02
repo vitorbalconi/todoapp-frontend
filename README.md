@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Backend
 
-This project uses json-server to simulate restAPI with backend.
+This project uses json-server to emulate restAPI with backend.
   
 1- Install json-server:
 npm install -g json-server
